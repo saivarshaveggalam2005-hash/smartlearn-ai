@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 10% 4%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 6%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 6%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 262 83% 58%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 240 6% 14%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 6% 14%;
+    --muted-foreground: 240 5% 65%;
+    --accent: 217 91% 60%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 6% 18%;
+    --input: 240 6% 18%;
+    --ring: 262 83% 58%;
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-card/60 backdrop-blur-xl border border-border/50;
+  }
+  .gradient-text {
+    @apply bg-gradient-to-r from-violet-400 via-purple-400 to-blue-400 bg-clip-text text-transparent;
+  }
+  .glow {
+    box-shadow: 0 0 40px -10px hsl(262 83% 58% / 0.4);
+  }
+}
+
+/* Clerk auth — ensure readable text on dark theme */
+.cl-headerTitle,
+.cl-headerSubtitle,
+.cl-formFieldLabel,
+.cl-socialButtonsBlockButtonText,
+.cl-dividerText,
+.cl-footerActionText,
+.cl-identityPreviewText {
+  color: hsl(0 0% 98%) !important;
+}
+
+.cl-headerSubtitle,
+.cl-dividerText,
+.cl-footerActionText {
+  color: hsl(240 5% 65%) !important;
+}
+
+.cl-formFieldInput {
+  color: hsl(0 0% 98%) !important;
+  background-color: hsl(240 10% 4%) !important;
+}
+
+.cl-socialButtonsBlockButton {
+  color: hsl(0 0% 98%) !important;
+  border-color: hsl(240 6% 18%) !important;
+}
